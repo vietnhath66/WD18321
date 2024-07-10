@@ -54,4 +54,34 @@ class ProductController extends Controller
         return redirect()->route('product.listProduct');
     }
 
+    public function editProduct($idProduct)
+    {
+        $product = DB::table('product')->where('id', $idProduct)->first();
+        $category = DB::table('category')->select('id', 'category_name')->get();
+        return view('product.editProduct', compact('product', 'category'));
+    }
+
+    public function updateProduct(Request $req, $idProduct)
+    {
+        $data = [
+            'name' => $req->nameProduct,
+            'price' => $req->priceProduct,
+            'view' => $req->viewProduct,
+            'category_id' => $req->categoryProduct,
+            'update_at' => Carbon::now(),
+        ];
+        DB::table('product')->where('id', $idProduct)->update($data);
+        return redirect()->route('product.listProduct');
+    }
+
+    public function searchProduct(Request $req)
+    {
+        $search = $req->search;
+        $listProduct = DB::table('product')
+            ->join('category', 'category.id', '=', 'product.category_id')
+            ->select('product.id', 'product.name', 'product.price', 'product.view', 'product.category_id', 'category.category_name')
+            ->where('product.name', 'like', '%' . $search . '%')
+            ->get();
+        return view('product.listProduct')->with(['listProduct' => $listProduct]);
+    }
 }

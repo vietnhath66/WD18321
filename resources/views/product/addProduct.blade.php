@@ -13,6 +13,8 @@
     <title>ADD</title>
 </head>
 <body>
+    <div class="container">
+
     <h3>Thêm mới</h3>
 
     <a class="btn btn-warning" href="{{ route ('product.listProduct')}}">Back</a>
@@ -46,6 +48,7 @@
         
         <button type="submit" class="btn btn-success">Submit</button>
     </form>
-
+    
+</div>
 </body>
 </html>

@@ -13,7 +13,13 @@
     <title>Danh sách sản phẩm</title>
 </head>
 <body>
+    <div class="container">
     <h3>Danh sách sản phẩm</h3>
+
+        <form action="{{ route('product.searchProduct')}}" method="get">
+            <input type="text"  name="search" placeholder="Tìm kiếm sản phẩm">
+            <button type="submit" class="btn btn-light">Tìm kiếm</button>
+        </form>
 
     <a class="btn btn-success" href="{{ route('product.addProduct')}}">Add</a>
 
@@ -39,7 +45,7 @@
                 <td class="text-danger">{{ $value->price }}$</td>
                 <td>{{ $value->view }}</td>
                 <td>
-                    <a class="btn btn-primary" href="">Edit</a>
+                    <a class="btn btn-primary" href="{{ route('product.editProduct', $value->id)}}">Edit</a>
                     <a class="btn btn-danger" href="{{ route('product.deleteProduct', $value->id)}}"
                     onclick="return confirm('Are you sure you want to delete?')">Delete</a>
                 </td>
@@ -48,5 +54,6 @@
             @endforeach
         </tbody>
     </table>
+</div>
 </body>
 </html>
