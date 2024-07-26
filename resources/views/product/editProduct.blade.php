@@ -15,7 +15,7 @@
 <body>
 <div class="container">
 
-        <h3>Thêm mới</h3>
+        <h3>Sửa</h3>
 
     <a class="btn btn-warning" href="{{ route ('product.listProduct')}}">Back</a>
 
@@ -28,7 +28,7 @@
         </div>
 
         <div class="mb-3">
-            <label class="col-sm-1 col-form-label">Phong ban</label>
+            <label class="col-sm-1 col-form-label">Category</label>
             <select class="col-sm-2" value="{{ $product->category_id }}" name="categoryProduct">
                 @foreach ($category as $value)
                 <option value="{{ $value->id }}">{{ $value->category_name }}</option>

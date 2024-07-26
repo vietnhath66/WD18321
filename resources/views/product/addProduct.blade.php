@@ -28,7 +28,7 @@
         </div>
 
         <div class="mb-3">
-            <label class="col-sm-1 col-form-label">Phong ban</label>
+            <label class="col-sm-1 col-form-label">Category</label>
             <select class="col-sm-2" name="categoryProduct">
                 @foreach ($category as $value)
                 <option value="{{ $value->id }}">{{ $value->category_name }}</option>

@@ -28,7 +28,7 @@
                 <th>Action</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody> 
             <?php $counter = 1; ?>
             @foreach($listUsers as $value)
 
